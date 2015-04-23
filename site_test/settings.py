@@ -22,14 +22,9 @@ SECRET_KEY = '0z9tv$hpioy0pzc=epi*%m@ndx!=%1wlxvu07xxk$+rxvfgshp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.messages.context_processors.messages',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    )
 
-   
 
 ALLOWED_HOSTS = []
 
@@ -48,9 +43,10 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.locale.LocaleMiddleware' esta linea genera error: "A server error occurred. Please contact the administrator."
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -75,9 +71,19 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jairnet5@gmail.com'
+DEFAULT_FROM_EMAIL = 'jairnet5@gmail.com'
+SERVER_EMAIL = 'jairnet5@gmail.com'
+EMAIL_HOST_PASSWORD = 'Family0501'
 
-TIME_ZONE = 'UTC'
+
+LANGUAGE_CODE = 'es'
+
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 

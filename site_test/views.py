@@ -1,6 +1,7 @@
 import datetime
-
+#from django.http import HttpResponse
 from django.shortcuts import render
+
 
 
 def hola(request):
@@ -22,3 +23,5 @@ def horas_adelante(request, horas):
 	
 	return render(request,'horas_adelante.html',{'hora_siguiente':dt,'horas':horas})
 	#'hora_siguiente' es la variable que esta en horas_adelante.html y 'dt' es el valor a asignar
+
+
