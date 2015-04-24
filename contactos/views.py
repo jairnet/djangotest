@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from contactos.forms import FormularioContactos
+from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 
 def contactos(request):
 	if request.method == 'POST':
@@ -12,7 +14,8 @@ def contactos(request):
 				cd.get('email','jairnet5@gmail.com'),
 				['jairnet5@hotmail.com'],
 			)
-			return HttpResponseRedirect('/contactos/gracias/')
+			#return HttpResponseRedirect('contactos/gracias.html')
+			return render(request,'gracias.html')
 	else:
 		form = FormularioContactos()
 	return render(request,'contactos.html',{'form':form})

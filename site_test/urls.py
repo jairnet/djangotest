@@ -6,7 +6,6 @@ from site_test.views import hola, fecha_actual, horas_adelante # Es la forma de 
 
 
 urlpatterns = [ 
-	
 	url(r'^admin/',include(admin.site.urls)),
 	url(r'^hola/$',hola),
 	url(r'^fecha/$',fecha_actual), #^fecha es la url de la pagina y "fecha_actual" es la funcion que esta en el archivo views.py
